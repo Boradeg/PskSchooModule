@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Homework.AddHomeworkActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gredient9"
+        android:id="@+id/tool_layout3"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/img_backpress"
+            android:layout_width="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/back_white" />
+
+        <TextView
+            android:id="@+id/tv_heading"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/img_backpress"
+            android:layout_height="wrap_content"
+            android:text="Add Homework"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/tool_layout3"
+
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Homework Data : "
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_marginHorizontal="20dp"
+        app:boxStrokeColor="@color/start_color"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_below="@id/textview1"
+        android:id="@+id/title_notice_layout"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/title_name"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="Enter Subject Name*"
+            android:inputType="text"
+            android:textCursorDrawable="@null" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:id="@+id/notice_desc_layout"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/title_notice_layout"
+        android:layout_marginHorizontal="20dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/notice_desc"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="Enter Teacher Name*"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/notice_created_by_layout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/notice_desc_layout"
+        android:layout_marginHorizontal="20dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/notice_created_by"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="Enter Note*"
+            android:inputType="text"
+          />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description_layout"
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/notice_created_by_layout"
+        android:layout_marginHorizontal="20dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint="Enter Description*"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:id="@+id/notice_issue_date"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/description_layout"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/homework_assign_date"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Date Of Assign Homework*"
+            android:inputType="none"
+            android:textCursorDrawable="@null"
+            android:focusable="false"
+            android:onClick="showDatePickerDialogAssignDate" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/LoginTextInputOuterFieldStyle"
+        android:id="@+id/date_of_last_homework_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/notice_issue_date"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black10"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/homework_last_date"
+            style="@style/LoginTextInputInnerFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Last Date to submit Homework*"
+            android:inputType="date"
+            android:textCursorDrawable="@null"
+            android:focusable="false"
+            android:onClick="showDatePickerDialogLastDate"
+           />
+
+    </com.google.android.material.textfield.TextInputLayout>
+  <androidx.appcompat.widget.AppCompatButton
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/add_homework_btn"
+      android:layout_below="@id/date_of_last_homework_layout"
+      android:background="@drawable/gredient_copy_main"
+      android:layout_marginHorizontal="20dp"
+      android:text="Save"
+      android:layout_marginTop="20dp"
+      android:textColor="@color/white"
+      android:textAllCaps="false"
+      android:textSize="@dimen/_10sdp"
+      />
+
+</RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
