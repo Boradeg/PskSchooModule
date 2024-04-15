@@ -1,9 +1,16 @@
 package com.example.pskschoolhomeworknotiholidaymodule;
 
 
+import android.app.DatePickerDialog;
+import android.content.Context;
+import android.widget.DatePicker;
+
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.text.ParseException;
         import java.text.SimpleDateFormat;
-        import java.util.Date;
+import java.util.Calendar;
+import java.util.Date;
         import java.util.Locale;
 
 public class UtilityClass {
@@ -20,5 +27,25 @@ public class UtilityClass {
             return null;
         }
     }
+
+    public static void showDatePickerDialog2(Context context, final TextInputEditText editText) {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        // Set the selected date on the EditText in "yyyy-MM-dd" format
+                        String selectedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", year, month + 1, day);
+
+                        editText.setText(selectedDate);
+                    }
+                }, year, month, dayOfMonth);
+        datePickerDialog.show();
+    }
+
 }
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.example.pskschoolhomeworknotiholidaymodule.Homework.AddHomeworkActivity;
 import com.example.pskschoolhomeworknotiholidaymodule.R;
 import com.example.pskschoolhomeworknotiholidaymodule.UtilityClass;
 import com.example.pskschoolhomeworknotiholidaymodule.databinding.ActivityCreateHolidayBinding;
@@ -19,14 +20,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 public class CreateHolidayActivity extends AppCompatActivity {
 
-    private TextInputEditText titleEditText;
-    private AppCompatButton createButton;
+
     private ActivityCreateHolidayBinding binding;
 
     @Override
@@ -34,22 +35,26 @@ public class CreateHolidayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding= ActivityCreateHolidayBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.holidayDateAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UtilityClass.showDatePickerDialog2(CreateHolidayActivity.this,binding.holidayDateAdd);
+                Toast.makeText(CreateHolidayActivity.this, binding.holidayDateAdd.getText(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
-        titleEditText = findViewById(R.id.title_name);
-      //  descEditText = findViewById(R.id.notice_desc);
-        //createdByEditText = findViewById(R.id.notice_created_by);
-        //dateEditText = findViewById(R.id.holiday_date);
-        createButton = findViewById(R.id.create_holiday);
 
-        createButton.setOnClickListener(new View.OnClickListener() {
+        binding.createHoliday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Get data from TextInputEditText fields
-                String title = titleEditText.getText().toString().trim();
+                String title = binding.holidayTitleNameAdd.getText().toString().trim();
                // String desc = descEditText.getText().toString().trim();
                // String createdBy = createdByEditText.getText().toString().trim();
-                String date = "2024-04-13T00:00:00";
+               //String date = "2024-04-13";
+                String date = binding.holidayDateAdd.getText().toString().trim();;
 
 
 
@@ -72,10 +77,10 @@ public class CreateHolidayActivity extends AppCompatActivity {
 
                                 // Parse the response if needed
                                 // Display success message
-                                Toast.makeText(CreateHolidayActivity.this, "Holiday created successfully!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateHolidayActivity.this, result, Toast.LENGTH_SHORT).show();
 
                                 // Clear TextInputEditText fields
-                                titleEditText.setText("");
+                                //titleEditText.setText("");
 
                             }
                         });
@@ -83,21 +88,4 @@ public class CreateHolidayActivity extends AppCompatActivity {
         });
     }
 
-    public void showDatePickerDialogLastDateCreateHoliday(View view) {
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        // Set the selected date on the EditText
-                        String selectedDate = day + "/" + (month + 1) + "/" + year;
-                        binding.holidayDate.setText(selectedDate);
-                    }
-                }, year, month, dayOfMonth);
-        datePickerDialog.show();
-    }
 }

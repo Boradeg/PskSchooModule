@@ -36,16 +36,15 @@ public class HomeworkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework);
-
         FloatingActionButton addEmployeeButton = findViewById(R.id.addEmployeeButton);
         addEmployeeButton.setOnClickListener(view -> {
             // Create an Intent to open the new activity
             Intent intent = new Intent(HomeworkActivity.this, AddHomeworkActivity.class);
             startActivity(intent);
         });
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         homeworkList = new ArrayList<>();
         adapter = new HomeworkAdapter(homeworkList);
         recyclerView.setAdapter(adapter);
@@ -93,7 +92,6 @@ public class HomeworkActivity extends AppCompatActivity {
             homeworkList.add(homework);
         }
         Toast.makeText(HomeworkActivity.this, homeworkList.get(1).toString(), Toast.LENGTH_SHORT).show();
-
         adapter.notifyDataSetChanged();
     }
 

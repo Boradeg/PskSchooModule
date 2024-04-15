@@ -40,24 +40,24 @@ public class NoticeboardAdapter extends RecyclerView.Adapter<NoticeboardAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvSubjectName;
-        private TextView tvNoticeboardDesc;
+        private TextView tv_notice_title;
+        private TextView tv_noticeboard_desc;
         private TextView tvNoticeboardUserName;
-        private TextView tvNoticeboardDate;
+        private TextView tv_noticeboard_date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvSubjectName = itemView.findViewById(R.id.tv_notice_title);
-            tvNoticeboardDesc = itemView.findViewById(R.id.tv_noticeboard_desc);
+            tv_notice_title = itemView.findViewById(R.id.tv_notice_title);
+            tv_noticeboard_desc = itemView.findViewById(R.id.tv_noticeboard_desc);
           //  tvNoticeboardUserName = itemView.findViewById(R.id.tv_noticeboard_user_name);
-            tvNoticeboardDate = itemView.findViewById(R.id.tv_noticeboard_date);
+            tv_noticeboard_date = itemView.findViewById(R.id.tv_noticeboard_date);
         }
 
         public void bind(NoticeBoardDataClass notification) {
-            tvSubjectName.setText(notification.getTitle());
-            tvNoticeboardDesc.setText(notification.getNote());
+            tv_notice_title.setText(notification.getTitle());
+            tv_noticeboard_desc.setText(notification.getNote());
            // tvNoticeboardUserName.setText(notification.getCreatedOn());
-            tvNoticeboardDate.setText(notification.getModifiedOn());
+            tv_noticeboard_date.setText(notification.getModifiedOn());
         }
     }
 }

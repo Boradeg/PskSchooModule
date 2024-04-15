@@ -48,6 +48,12 @@ public class AddHomeworkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityAddHomeworkBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.homeworkLastDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UtilityClass.showDatePickerDialog2(AddHomeworkActivity.this,binding.homeworkLastDate);
+            }
+        });
 
         autoCompleteTextViewStandard = binding.tvStandard;
         autoCompleteTextViewDivision = binding.tvDivision;
@@ -72,23 +78,7 @@ public class AddHomeworkActivity extends AppCompatActivity {
 
     }
 
-    public void showDatePickerDialogLastDate(View v) {
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        // Set the selected date on the EditText
-                        String selectedDate = day + "/" + (month + 1) + "/" + year;
-                        binding.homeworkLastDate.setText(selectedDate);
-                    }
-                }, year, month, dayOfMonth);
-        datePickerDialog.show();
-    }
     public void createHomework() {
         String note = binding.titleName.getText().toString().trim();
         String date2 = binding.homeworkLastDate.getText().toString().trim();
@@ -101,7 +91,7 @@ public class AddHomeworkActivity extends AppCompatActivity {
                 .setMultipartParameter("SubjectId", String.valueOf(selectedSubjectId))
                 .setMultipartParameter("Note", note)
                 .setMultipartParameter("File", "demo.pdf")
-                .setMultipartParameter("CompletionOn","2024-04-13 16:03:52.243")
+                .setMultipartParameter("CompletionOn",date2)
                 .asString()
                 .setCallback(new FutureCallback<String>() {
                     @Override
@@ -150,7 +140,7 @@ public class AddHomeworkActivity extends AppCompatActivity {
                 standardList.add(new StandardData(standardId, standardName));
             }
 
-            ArrayAdapter<StandardData> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, standardList);
+            ArrayAdapter<StandardData> adapter = new ArrayAdapter<>(this,R.layout.drop_down_layout2, standardList);
             autoCompleteTextViewStandard.setAdapter(adapter);
 
             autoCompleteTextViewStandard.setOnItemClickListener((parent, view, position, id) -> {
@@ -206,7 +196,7 @@ public class AddHomeworkActivity extends AppCompatActivity {
             // Log the size of the division list
             Log.d("DivisionListSize", "Division list size: " + divisionList.size());
 
-            ArrayAdapter<Division> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, divisionList);
+            ArrayAdapter<Division> adapter = new ArrayAdapter<>(this,R.layout.drop_down_layout2, divisionList);
             autoCompleteTextViewDivision.setAdapter(adapter);
 
             autoCompleteTextViewDivision.setOnItemClickListener((parent, view, position, id) -> {
@@ -310,7 +300,7 @@ public class AddHomeworkActivity extends AppCompatActivity {
                 subjects.add(new Subject(subjectId, standardId, subjectName));
             }
 
-            ArrayAdapter<Subject> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, subjects);
+            ArrayAdapter<Subject> adapter = new ArrayAdapter<>(this, R.layout.drop_down_layout2, subjects);
             autoCompleteTextViewSubjects.setAdapter(adapter);
 
             autoCompleteTextViewSubjects.setOnItemClickListener((parent, view, position, id) -> {

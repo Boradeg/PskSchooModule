@@ -51,21 +51,19 @@ public class HolidayAdapter extends RecyclerView.Adapter<HolidayAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textHolidayId;
-        private TextView tv_subject_name;
-        private TextView tv_noticeboard_desc;
+        private TextView tv_holiday_title_item;
+        private TextView tv_holiday_desc_item;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_subject_name = itemView.findViewById(R.id.tv_subject_name);
-            tv_noticeboard_desc = itemView.findViewById(R.id.tv_noticeboard_desc);
+            tv_holiday_title_item = itemView.findViewById(R.id.tv_holiday_title_item);
+            tv_holiday_desc_item = itemView.findViewById(R.id.tv_holiday_desc_item);
         }
 
         public void bind(Holiday holiday) {
-            tv_subject_name.setText("Holiday On "+holiday.getCreatedOn());
-            tv_noticeboard_desc.setText(holiday.getNote());
-
+            tv_holiday_title_item.setText("Holiday On "+holiday.getCreatedOn());
+            tv_holiday_desc_item.setText(holiday.getNote());
         }
     }
 }

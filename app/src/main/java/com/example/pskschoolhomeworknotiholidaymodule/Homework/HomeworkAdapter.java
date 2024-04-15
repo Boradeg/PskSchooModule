@@ -31,10 +31,10 @@ public class HomeworkAdapter extends RecyclerView.Adapter<HomeworkAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Homework homework = homeworkList.get(position);
-        holder.tv_noticeboard_title.setText(homework.getSubjectName());
-        holder.tv_homework_created_by.setText(homework.getTeacherFullName());
-        holder.tv_homework_date.setText(homework.getModifiedOn());
-        holder.tv_noticeboard_desc.setText(homework.getNote());
+        holder.tv_homework_subject_name.setText(homework.getSubjectName());
+        holder.tv_homework_user_name.setText(homework.getTeacherFullName());
+        holder.tv_homework_date_item.setText(homework.getModifiedOn());
+        holder.tv_homework_desc.setText(homework.getNote());
     }
 
 
@@ -45,17 +45,17 @@ public class HomeworkAdapter extends RecyclerView.Adapter<HomeworkAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_noticeboard_title;
-        private TextView tv_homework_created_by;
-        private TextView tv_homework_date;
-        private TextView tv_noticeboard_desc;
+        private TextView tv_homework_subject_name;
+        private TextView tv_homework_user_name;
+        private TextView tv_homework_date_item;
+        private TextView tv_homework_desc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_noticeboard_title = itemView.findViewById(R.id.tv_subject_name);
-            tv_homework_created_by = itemView.findViewById(R.id.tv_noticeboard_user_name);
-            tv_homework_date = itemView.findViewById(R.id.tv_noticeboard_date);
-            tv_noticeboard_desc = itemView.findViewById(R.id.tv_noticeboard_desc);
+            tv_homework_subject_name = itemView.findViewById(R.id.tv_homework_subject_name);
+            tv_homework_user_name = itemView.findViewById(R.id.tv_homework_user_name);
+            tv_homework_date_item = itemView.findViewById(R.id.tv_homework_date_item);
+            tv_homework_desc = itemView.findViewById(R.id.tv_homework_desc);
         }
 
     }

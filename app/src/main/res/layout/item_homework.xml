@@ -22,7 +22,7 @@
             android:id="@+id/rel1"
             android:background="@drawable/background_card_homework2">
             <TextView
-                android:id="@+id/tv_subject_name"
+                android:id="@+id/tv_homework_subject_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
@@ -53,7 +53,7 @@
 
 
             <TextView
-                android:id="@+id/tv_noticeboard_desc"
+                android:id="@+id/tv_homework_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="15dp"
-                android:layout_below="@id/tv_noticeboard_desc"
+                android:layout_below="@id/tv_homework_desc"
                 android:layout_centerVertical="true"
                 >
 
@@ -79,7 +79,7 @@
                     android:src="@drawable/user"
                     />
                 <TextView
-                    android:id="@+id/tv_noticeboard_user_name"
+                    android:id="@+id/tv_homework_user_name"
                     android:layout_width="130dp"
                     android:layout_centerVertical="true"
                     android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                     android:layout_height="100dp"
                     />
                 <TextView
-                    android:id="@+id/tv_noticeboard_date"
+                    android:id="@+id/tv_homework_date_item"
                     android:layout_width="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_height="wrap_content"

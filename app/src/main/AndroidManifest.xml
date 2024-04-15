@@ -13,13 +13,21 @@
         android:theme="@style/Theme.PskSchoolHomeworkNotiHolidayModule"
         tools:targetApi="31">
         <activity
+            android:name=".Attendance.CreateAttendanceActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".Attendance.GetAttendanceActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".NoticeBoard.AddNoticeActivity"
             android:exported="false" />
         <activity
             android:name=".NoticeBoard.NoticeBoardActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Holiday.CreateHolidayActivity"
             android:exported="false" />
@@ -31,13 +39,12 @@
             android:exported="false" />
         <activity
             android:name=".Homework.HomeworkActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Holiday.GetHolidayActivity">
+    tools:context=".Attendance.GetAttendanceActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -31,6 +32,7 @@
                 android:layout_height="40dp"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
+                android:visibility="gone"
                 android:onClick="showDatePickerDialogLastDateFilter"
                 android:src="@drawable/filter_one" />
             <TextView
@@ -41,7 +43,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/img_backpress"
                 android:layout_height="wrap_content"
-                android:text="Holidays"
+                android:text="Attendance"
                 android:layout_marginStart="20dp"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -50,68 +52,50 @@
 
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_layout"
-            android:padding="18dp"
-            android:background="@drawable/background_card_gredient_color"
-            android:layout_marginHorizontal="14dp"
+            android:id="@+id/date_layout"
             android:layout_below="@id/tool_layout3"
-            android:layout_marginTop="10dp"
-            >
-            <RelativeLayout
+            android:background="@drawable/border"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="50dp">
+            <TextView
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="03/04/2024"
+
                 android:layout_centerVertical="true"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/t1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="@dimen/_18sdp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:textColor="@color/black"
-                    android:text="Holiday"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:layout_below="@id/t1"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/black10"
-                    android:layout_marginTop="5dp"
-                    android:text="Enjoy the break !"
-                    />
-            </RelativeLayout>
+                android:layout_marginStart="20dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_regular"
+                />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black10"
+                android:layout_toLeftOf="@id/calender_img"
+                android:layout_marginEnd="20dp"
+                android:layout_marginVertical="10dp"
+                />
             <ImageView
-                android:layout_width="140dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="10dp"
+                android:id="@+id/calender_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/filter_two"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/hoilday"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
                 />
 
-        </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#808080"
-            android:id="@+id/view_hori"
-            android:layout_below="@id/image_layout"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
-            />
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/rv_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/view_hori"
+            android:layout_below="@id/date_layout"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/black10"
             >
@@ -119,7 +103,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_hoilday"
+                tools:listitem="@layout/item_attendance"
                 />
         </RelativeLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton

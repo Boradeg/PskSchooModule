@@ -59,7 +59,7 @@ public class AddNoticeActivity extends AppCompatActivity {
 
     public void createNotice() {
         // Get data from the TextInputEditText fields
-        String title = binding.titleName.getText().toString().trim(); // Get title from EditText
+        String title = binding.noticeTitleName.getText().toString().trim(); // Get title from EditText
         String note = binding.noticeDesc.getText().toString().trim(); // Get note from EditText
         String startOn = "2024-04-13T16:03:52.243"; // You can get startOn from a DatePicker or another EditText
         String endOn = "2024-04-13T16:03:52.243"; // You can get endOn from a DatePicker or another EditText
