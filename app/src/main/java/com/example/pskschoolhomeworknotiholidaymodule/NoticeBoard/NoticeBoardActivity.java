@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.pskschoolhomeworknotiholidaymodule.Homework.AddHomeworkActivity;
 import com.example.pskschoolhomeworknotiholidaymodule.Homework.HomeworkActivity;
 import com.example.pskschoolhomeworknotiholidaymodule.R;
+import com.example.pskschoolhomeworknotiholidaymodule.UtilityClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -35,7 +36,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
         adapter = new NoticeboardAdapter(notificationList);
         recyclerView.setAdapter(adapter);
         Ion.with(this)
-                .load("https://www.pskeducation.co.in/api/SchoolNotifications/GetSchoolNotifications")
+                .load(UtilityClass.BASE_URL+"api/SchoolNotifications/GetSchoolNotifications")
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override

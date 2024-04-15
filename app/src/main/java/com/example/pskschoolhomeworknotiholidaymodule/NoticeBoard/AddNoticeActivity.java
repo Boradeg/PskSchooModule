@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pskschoolhomeworknotiholidaymodule.R;
+import com.example.pskschoolhomeworknotiholidaymodule.UtilityClass;
 import com.example.pskschoolhomeworknotiholidaymodule.databinding.ActivityAddNoticeBinding;
 import com.example.pskschoolhomeworknotiholidaymodule.databinding.ActivityGetHolidayBinding;
 import com.google.gson.JsonObject;
@@ -72,7 +73,7 @@ public class AddNoticeActivity extends AppCompatActivity {
 
         // Send POST request using Ion library
         Ion.with(this)
-                .load("POST", "https://www.pskeducation.co.in/api/SchoolNotifications/CreateSchoolNotification/")
+                .load("POST", UtilityClass.BASE_URL+"api/SchoolNotifications/CreateSchoolNotification/")
                 .setMultipartParameter("Title", title)
                 .setMultipartParameter("Note", note)
                 .setMultipartParameter("File", "Noye.pdf")

@@ -1,6 +1,7 @@
 package com.example.pskschoolhomeworknotiholidaymodule.Holiday;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -9,10 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pskschoolhomeworknotiholidaymodule.R;
+import com.example.pskschoolhomeworknotiholidaymodule.UtilityClass;
 import com.example.pskschoolhomeworknotiholidaymodule.databinding.ActivityGetHolidayBinding;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
@@ -51,7 +54,7 @@ public class GetHolidayActivity extends AppCompatActivity {
 
     private void fetchHolidayData() {
         Ion.with(this)
-                .load("https://www.pskeducation.co.in/api/Holidays/GetHolidays")
+                .load(UtilityClass.BASE_URL+"api/Holidays/GetHolidays")
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override
@@ -66,11 +69,18 @@ public class GetHolidayActivity extends AppCompatActivity {
                 });
     }
 
+
     private void handleJsonArrayResponse(JsonArray jsonArray) {
         for (JsonElement jsonElement : jsonArray) {
-            Holiday holiday = new Gson().fromJson(jsonElement, Holiday.class);
-            holidayList.add(holiday);
+            try {
+                Holiday holiday = new Gson().fromJson(jsonElement, Holiday.class);
+                holidayList.add(holiday);
+            } catch (JsonParseException e) {
+                // Log the JSON data and exception for debugging
+                Log.e("JsonParseException", "Error parsing JSON: " + jsonElement.toString(), e);
+            }
         }
         adapter.notifyDataSetChanged();
     }
+
 }

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pskschoolhomeworknotiholidaymodule.R;
+import com.example.pskschoolhomeworknotiholidaymodule.UtilityClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -50,7 +51,7 @@ public class HomeworkActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         Ion.with(this)
-                .load("https://www.pskeducation.co.in/api/Homeworks/GetHomeworks")
+                .load(UtilityClass.BASE_URL+"api/Homeworks/GetHomeworks")
                 .asJsonArray()
                 .setCallback(new FutureCallback<JsonArray>() {
                     @Override
